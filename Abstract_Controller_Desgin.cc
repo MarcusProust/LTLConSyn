@@ -21,7 +21,7 @@ const double tau = 0.2;
 const int nint = 5;
 OdeSolver ode_solver(sDIM, nint, tau);
 
-/* we integrate the vehicle ode by 0.2 sec (the result is stored in x)  */
+/* the vehicle ode   */
 auto  vehicle_post = [](state_type &x, input_type &u) -> void {
   auto rhs = [](state_type& xx, const state_type &x, input_type &u) {
       double alpha=std::atan(std::tan(u[1])/2.0);
@@ -58,7 +58,7 @@ int main() {
   /* construct SymbolicSet for the state space */
   double lb1[sDIM]={0.6, 0, -M_PI};  
   double ub1[sDIM]={5.4, 4.6, M_PI}; 
-  double eta1[sDIM]={0.1, 0.1, 0.2};   
+  double eta1[sDIM]={0.16, 0.16, 0.16};   
   scots::SymbolicSet ss1(mgr, sDIM, lb1, ub1, eta1);
   ss1.addGridPoints();
 
@@ -116,7 +116,7 @@ int main() {
   /* construct SymbolicSet for the state space */
   double lb2[sDIM]={0.6, 0.4, -M_PI};  
   double ub2[sDIM]={5.4, 7.6, M_PI}; 
-  double eta2[sDIM]={0.1, 0.1, 0.2};   
+  double eta2[sDIM]={0.16, 0.16, 0.16};   
   scots::SymbolicSet ss2(mgr, sDIM, lb2, ub2, eta2);
   ss2.addGridPoints();
 
@@ -176,7 +176,7 @@ int main() {
   /* SymbolicSet for the state space */
   double lb3[sDIM]={0.6, 5.4, -M_PI};  
   double ub3[sDIM]={5.4, 10, M_PI}; 
-  double eta3[sDIM]={0.1, 0.1, 0.1};   
+  double eta3[sDIM]={0.18, 0.18, 0.18};   
   scots::SymbolicSet ss3(mgr, sDIM, lb3, ub3, eta3);
   ss3.addGridPoints();
  
@@ -256,7 +256,7 @@ int main() {
   /* construct SymbolicSet for the state space */
   double lb4[sDIM]={4.6, 5.4, -M_PI};  
   double ub4[sDIM]={9.4, 10, M_PI}; 
-  double eta4[sDIM]={0.1, 0.1, 0.2};   
+  double eta4[sDIM]={0.16, 0.16, 0.16};   
   scots::SymbolicSet ss4(mgr, sDIM, lb4, ub4, eta4);
   ss4.addGridPoints();
 
@@ -314,7 +314,7 @@ int main() {
   /* construct SymbolicSet for the state space */
   double lb5[sDIM]={4.6, 0.4, -M_PI};  
   double ub5[sDIM]={9.4, 7.6, M_PI}; 
-  double eta5[sDIM]={0.1, 0.1, 0.2};   
+  double eta5[sDIM]={0.18, 0.18, 0.18};   
   scots::SymbolicSet ss5(mgr, sDIM, lb5, ub5, eta5);
   ss5.addGridPoints();
 
@@ -397,7 +397,7 @@ int main() {
   /* construct SymbolicSet for the state space */
   double lb6[sDIM]={4.2, 0.7, -M_PI};  
   double ub6[sDIM]={10, 4.3, M_PI}; 
-  double eta6[sDIM]={0.1, 0.1, 0.1};   
+  double eta6[sDIM]={0.15, 0.15, 0.15};   
   scots::SymbolicSet ss6(mgr, sDIM, lb6, ub6, eta6);
   ss6.addGridPoints(); 
   double H61[2*sDIM]={0.75, -1, 0,
@@ -500,21 +500,6 @@ int main() {
 
   return 1;
 
-}
-
-/****************************************************************************/
-scots::SymbolicSet vehicleCreateStateSpace(Cudd &mgr) {
-  /* lower bounds of the hyper rectangle */
-  double lb[sDIM]={0, 0, -M_PI-0.4};  
-  /* upper bounds of the hyper rectangle */
-  double ub[sDIM]={10, 10, M_PI+0.4}; 
-  /* grid node distance diameter */
-  double eta[sDIM]={0.2, 0.2, 0.1};   
-
-  scots::SymbolicSet ss(mgr, sDIM, lb, ub, eta);
-  ss.addGridPoints();
-
- return ss;
 }
 
 /****************************************************************************/
