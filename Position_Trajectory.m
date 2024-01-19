@@ -121,7 +121,6 @@ end
 x0=y(end, :);
 con=[con; v];
 plot(y(:,1), y(:,2), 'b-', 'linewidth', 1.5); hold on;
-%plot(y(:,1),y(:,2),'b.', 'markersize',20); hold on;
 end
 
 %% Safety
