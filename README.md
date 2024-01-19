@@ -7,5 +7,5 @@ You need to install [CORA](https://tumcps.github.io/CORA/) for the zonotope gene
 
 # How to run
 1. Run <code style="color : blue">Zonotope_Covering.m</code> to obtain the zonotope-based covering
-2. Run [Abstract_Controller_Desgin.cc] to generate all local controllers 
-3. Run [Position_Trajectory.m] to derive the position trajectory
+2. Run <code style="color : blue">Abstract_Controller_Desgin.cc</code> to generate all local controllers 
+3. Run <code style="color : blue">Position_Trajectory.m</code> to derive the position trajectory
